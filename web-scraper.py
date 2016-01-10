@@ -4,9 +4,8 @@ from bs4 import BeautifulSoup
 url = "http://finance.yahoo.com/q/ks?s=SBUX+Key+Statistics"
 page = urllib.request.urlopen(url)
 soup = BeautifulSoup(page.read(), "html.parser")
-#print(soup.prettify())
-stats=soup.find_all('td',class_='yfnc_tablehead1')
 table = soup.find("table", border=0, cellspacing = 1)
+
 for row in table.findAll('tr'):
     col = row.findAll('td')
     #print(col[0])
